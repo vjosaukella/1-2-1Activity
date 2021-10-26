@@ -19,12 +19,17 @@ fontSetup = ("Arial",20,"normal")
 timer = 30
 timerUp = False
 counterInterval = 1000
+colors = ["yellow", "gray", "blue", "red", "purple", "pink"]
+differentsizes = [0.5, 1.0, 1.5, 2.0, 2.5]
+
 
 #-----initialize turtle-----
 T = trtl.Turtle()
 T.shape(shape)
 T.turtlesize(size)
 T.fillcolor(color)
+
+
 
 scoreWriter = trtl.Turtle()
 scoreWriter.penup()
@@ -35,7 +40,7 @@ counter.penup()
 counter.goto(-300,-300)
 #-----game functions--------
 wn = trtl.Screen()
-
+wn.bgcolor("light green")
 
 def spot_clicked(x, y):
     print("It worked! XD")
@@ -45,6 +50,8 @@ def spot_clicked(x, y):
     T.penup()
     T.goto(rand.randint(xmin,xmax), rand.randint(ymin,ymax))
     scoreChange()
+    colorChange()
+    sizeChange()
 
 def scoreChange():
     global score
@@ -63,8 +70,23 @@ def countdown():
         counter.write("Timer " + str(timer), font=fontSetup)
         timer-=1
         counter.getscreen().ontimer(countdown,counterInterval)
-#def change_position():
-    #xpos =
+
+def colorChange():
+    T.color(rand.choice(colors))
+    T.stamp()
+    T.color("magenta")
+
+def sizeChange():
+    T.shapesize(rand.choice(differentsizes))
+
+def startgame():
+    if spot_clicked():
+
+
+
+
+
+
 
 
 
